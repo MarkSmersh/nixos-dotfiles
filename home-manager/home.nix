@@ -16,6 +16,8 @@
     wl-clipboard
     grim
     slurp
+    telegram-desktop
+    cloudflare-warp
   ];
 
   fonts.fontconfig.enable = true;

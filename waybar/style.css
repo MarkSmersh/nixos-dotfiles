@@ -8,6 +8,7 @@
     font-size: 11px;
 
     min-height: 0;
+    color: #fff;
 }
 
 window#waybar {
@@ -81,11 +82,12 @@ window#waybar.chromium {
 #tray,
 #mode,
 #idle_inhibitor,
+#language,
 #mpd {
     border-radius: 4px;
     padding: 0px 8px;
     margin: 4px 4px;
-    color: #000000;
+    background-color: #000000;
 }
 
 #window,
@@ -227,8 +229,8 @@ label:focus {
     background-color: #51a37a;
 }
 
-#language {
+/* #language {
     background: #bbccdd;
     color: #333333;
     min-width: 16px;
-}
+} */
