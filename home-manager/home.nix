@@ -17,7 +17,7 @@
     grim
     slurp
     telegram-desktop
-    cloudflare-warp
+    wgcf
   ];
 
   fonts.fontconfig.enable = true;
