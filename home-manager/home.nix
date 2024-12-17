@@ -18,6 +18,7 @@
     telegram-desktop
     wgcf
     unzip
+    gcc14
   ];
 
   home.pointerCursor = {
