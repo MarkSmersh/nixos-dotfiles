@@ -6,7 +6,6 @@
     nodejs_22
     git
     waybar
-    hyprpaper
     wofi
     nautilus
     wev
@@ -18,7 +17,16 @@
     slurp
     telegram-desktop
     wgcf
+    unzip
   ];
+
+  home.pointerCursor = {
+	gtk.enable = true;
+	x11.enable = true;
+	package = pkgs.material-cursors;
+	name = "material_cursors"; # name is gotten from cursor.theme file
+	size = 20;
+  };
 
   fonts.fontconfig.enable = true;
 

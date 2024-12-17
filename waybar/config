@@ -19,32 +19,6 @@
              "default": ""
          },
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -57,6 +31,7 @@
         "spacing": 5
     },
     "clock": {
+    	"interval": 1,
         "format": "{:%H:%M}",
         "format-alt": "{:%c}" 
     },
@@ -115,8 +90,8 @@
         "scroll-step": 5, // %, can be a float
         "format": "{icon}",
         "format-alt": "{icon} {volume}%",
-        "format-bluetooth": "{volume}%",
-        "format-bluetooth-muted": "{volume}%",
+        "format-bluetooth": "",
+        "format-bluetooth-muted": " ",
         "format-muted": "",
 	"on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol",
