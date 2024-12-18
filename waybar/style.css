@@ -83,6 +83,7 @@ window#waybar.chromium {
 #mode,
 #idle_inhibitor,
 #language,
+#custom,
 #mpd {
     border-radius: 4px;
     padding: 0px 8px;

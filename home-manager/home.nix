@@ -19,6 +19,8 @@
     wgcf
     unzip
     gcc14
+    cargo
+    rust-analyzer
   ];
 
   home.pointerCursor = {

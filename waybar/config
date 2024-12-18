@@ -5,10 +5,15 @@
     "height": 32, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["custom/pl", "hyprland/workspaces"],
     "modules-center": ["cpu", "memory"],
     "modules-right": ["hyprland/language", "pulseaudio#output", "pulseaudio#input", "network", "backlight", "battery", "clock"],
     // Modules configuration
+    
+    "custom/pl": {
+    	"format": "  🇵🇱",
+    },
+
     "hyprland/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
@@ -81,10 +86,10 @@
         "format-wifi": "{icon}",
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": " Disconnected",
+        "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr} ({signalStrength}%)",
 	"format-icons": ["", "", ""],
-	"tooltip-format": "{essid} {bandwidthUpBits} {bandwidthDownBits}"
+	"tooltip-format": "{essid} {bandwidthUpBits} {bandwidthDownBits}"
     },
     "pulseaudio#output": {
         "scroll-step": 5, // %, can be a float
