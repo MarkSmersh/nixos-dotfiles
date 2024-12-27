@@ -9,7 +9,6 @@
     "modules-center": ["cpu", "memory"],
     "modules-right": ["hyprland/language", "pulseaudio#output", "pulseaudio#input", "network", "backlight", "battery", "clock"],
     // Modules configuration
-    
     "custom/pl": {
     	"format": "  🇵🇱",
     },

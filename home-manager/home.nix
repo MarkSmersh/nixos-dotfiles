@@ -1,15 +1,38 @@
 { pkgs, ...}: {
+  programs.neovim = {
+    enable = true;
+
+	extraPackages = with pkgs; [
+		typescript-language-server
+		svelte-language-server
+		nodePackages.prettier
+		lua-language-server
+		rust-analyzer
+		python313
+		gnumake
+		lua-language-server
+		djlint
+		stylua
+	    ast-grep
+        gopls
+	];
+  };
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+  };
+
   home.packages = with pkgs; [
     home-manager
     neofetch
-    neovim
     nodejs_22
     git
     waybar
     wofi
-    nautilus
     wev
-    sway
     pavucontrol
     hyprpaper
     wl-clipboard
@@ -20,8 +43,16 @@
     unzip
     gcc14
     cargo
-    rust-analyzer
+    yazi
+    brightnessctl
+    ffmpeg
+    brave
+    tmux
+    go
+    sqld
   ];
+
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.pointerCursor = {
 	gtk.enable = true;
