@@ -1,12 +1,13 @@
 *
 
-!/waybar
-!/nvim
-!/neofetch
-!/kitty
-!/hypr
-!/home-manager
-!/tmux
+!nvim/
+!waybar/
+!neofetch/
+!kitty/
+!hypr/
+!home-manager/
+!tmux/
+!pulse/
 
 !.gitignore
 !mimeapps.list
