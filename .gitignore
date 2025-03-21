@@ -1,0 +1,13 @@
+*
+
+!/waybar
+!/nvim
+!/neofetch
+!/kitty
+!/hypr
+!/home-manager
+!/tmux
+
+!.gitignore
+!mimeapps.list
+!pavucontrol.ini
