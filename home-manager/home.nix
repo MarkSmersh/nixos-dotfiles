@@ -1,4 +1,17 @@
-{ pkgs, ...}: {
+{ pkgs, inputs, ...}:
+
+let pkgsUnstable = import <nixpkgs-unstable> {};
+ 
+in
+
+{
+    programs.home-manager.enable = true;
+
+    # stupid egror
+    home.enableNixpkgsReleaseCheck = false;
+
+    # home.backupFileExtension = "backup";
+
   programs.neovim = {
     enable = true;
 
@@ -12,9 +25,12 @@
 		gnumake
 		lua-language-server
 		djlint
+        prettierd
 		stylua
 	    ast-grep
         gopls
+        sourcekit-lsp
+        vscode-langservers-extracted
 	];
   };
 
@@ -26,7 +42,6 @@
   };
 
   home.packages = with pkgs; [
-    home-manager
     neofetch
     nodejs_22
     git
@@ -49,13 +64,21 @@
     tmux
     go
     sqld
-    nerdfonts
-    tdlib
-    cmake
-    gnumake
-    gperf
-    libressl_3_9
+    (python3.withPackages (python-pkgs: with python-pkgs;
+      [
+        telethon
+      ]
+    ))
+    pyright
     rofi
+    postman
+    # yaak
+    # nerd-fonts.mplus
+    nerdfonts
+    pkgsUnstable.yaak
+    vesktop
+    swappy
+    feh
   ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";

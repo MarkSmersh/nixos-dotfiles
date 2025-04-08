@@ -61,7 +61,8 @@
         "format": "{icon} ",
         "format-alt": "{icon}  {percent}%",
         "format-icons": ["󰃞", "󰃟", "󰃠"],
-	    "scroll-step": 5
+	    "scroll-step": 5,
+        "on-click-right": "brightnessctl set 1%"
     },
     "hyprland/language": {
     	"format": "󰌌  {short}"
@@ -72,9 +73,10 @@
             "warning": 30,
             "critical": 15
         },
+        "interval": 5,
         "format": "{icon} ",
-        "format-charging": "    {capacity}%",
-        "format-plugged": "    {capacity}%",
+        "format-charging": "   {capacity}%",
+        "format-plugged": "   {capacity}%",
         "format-alt": "{icon}   {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -85,7 +87,7 @@
         "format-wifi": "{icon} ",
         "format-ethernet": "󰌗  {ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "󰤮",
+        "format-disconnected": "󰤮 ",
         "format-alt": "󰒍  {ifname} | 󰩠  {ipaddr}/{cidr} | 󰀂  {signalStrength}%",
 	    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
 	    "tooltip-format": "{essid}  {bandwidthUpBits}  {bandwidthDownBits}"
