@@ -1,211 +1,128 @@
-i {
-    border: none;
-    border-radius: 8px;
-    /* `ttf-font-awesome` is required to be installed for icons */
-    font-family: "Font Awesome 6 Pro", sans-serif;
-
-    /* adjust font-size value to your liking: */
-    font-size: 11px;
-
-    min-height: 0;
-    color: #fff;
-}
+/* color palette:  */
+/* #000000 just black, black work better */
+/* #f0dcc3 cream color */
+/* #ee84c2 pink */
+/* #87d182 green */
 
 * {
-    border: none;
-    font-size: 11px;
-    min-height: 0;
-    color: #fff;
-}
-
-#custom-pl {
-    color: #0080ff;
-    font-size: 16px;
+  font-size: 12px;
+  border: inherit;
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, .8);
-    transition-property: background-color;
-    transition-duration: .5s;
-    border-radius: 0;
+  background: none;
+  all: unset;
+  border: 2px solid transparent;
+  /* border-bottom: 1px solid transparent; */
+}
+
+/* CUSTOM PL */
+
+#custom-pl {
+  color: #87d182;
+  font-size: 17px;
+  background: alpha(#000000, 0.7);
+  border-radius: 8px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  border: 0;
+  text-shadow: 0px 0px 4px alpha(#87d182, 0.7);
+}
+
+/* WORKSPACES */
+
+#workspaces {
+  background: alpha(#000000, 0.7);
+  border-radius: 8px;
 }
 
 #workspaces button {
-    /* padding: 0 0.4em; */
-    /* background-color: transparent; */
-    color: #fff;
-    margin-left: 8px;
-    padding: 0;
-    /* Use box-shadow instead of border so the text isn't offset */
+  padding: 2px 4px;
+  border: 0;
+  color: #f0dcc3;
 }
 
-#mode {
-    background-color: #64727D;
-    /* border-bottom: 3px solid #ffffff; */
+#workspaces button:hover {
+  background: transparent;
+  border: 0;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #87d182;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#language,
-#custom,
-#mpd {
-    border-radius: 4px;
-    padding: 0px 8px;
-    margin: 4px 4px;
-    background-color: #000000;
+#workspaces button.urgent {
+  color: #ee84c2;
 }
 
-#window,
-#workspaces {
-    margin: 0;
-    padding: 0;
+#workspaces button.active {
+  color: #87d182;
+  text-shadow: 0px 0px 4px alpha(#87d182, 0.7);
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+/* MODULES */
+
+.modules-left {
+  border: 0;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right {
+  border: 0;
 }
 
-#clock {
-    background-color: #000000;
-    color: white;
+.modules-center {
+  border-radius: 8px;
+  padding: 0 8px;
+  color: #f0dcc3;
+  border: 0;
+  background: alpha(#000000, 0.7);
 }
 
-#battery {
-    background-color: #000000;
-    color: white;
-}
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #000000;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-label:focus {
-    background-color: #000000;
-}
+/* RAM AND MEMORY */
 
 #cpu {
-    background-color: #000000;
-    color: #ffffff;
+  margin-right: 16px;
 }
 
-#memory {
-    background-color: #000000;
-    color: white;
+/* GROUP EXPAND */
+
+#expand {
+  background-color: alpha(#000000, 0.7);
+  border-radius: 8px;
+  margin-right: 8px;
+  color: #f0dcc3;
 }
 
-#backlight {
-    background-color: #000000;
-    color:white;
+#language {
+  margin-left: 12px;
 }
 
-#network {
-    background-color: #000000;
-    color:white;
-
+#language,
+#pulseaudio,
+#network,
+#backlight,
+#battery {
+  margin-right: 12px;
 }
 
-#network.disconnected {
-    background-color: #f53c3c;
+/* CLOCK */
+
+#clock {
+  background-color: alpha(#000000, 0.7);
+  border-radius: 8px;
+  padding: 0 8px;
+  border: 0;
+  color: #f0dcc3;
 }
 
-#pulseaudio {
-    background-color: #000000;
-    color: #ffffff;
+/* TOOLTIP */
+
+tooltip {
+  background-color: alpha(#000000, 0.7);
+  border-radius: 8px;
 }
 
-#pulseaudio.muted {
-    background-color: #000000;
-    color: #ffffff;
+tooltip label {
+  color: #f0dcc3;
 }
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
-#tray {
-    background-color: #2980b9;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-/* #language {
-    background: #bbccdd;
-    color: #333333;
-    min-width: 16px;
-} */

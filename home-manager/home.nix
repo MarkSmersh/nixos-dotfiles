@@ -1,6 +1,6 @@
 { pkgs, inputs, ...}:
 
-let pkgsUnstable = import <nixpkgs-unstable> {};
+let u = import <nixpkgs-unstable> {};
  
 in
 
@@ -63,22 +63,25 @@ in
     brave
     tmux
     go
-    sqld
     (python3.withPackages (python-pkgs: with python-pkgs;
       [
         telethon
       ]
     ))
-    pyright
+    pyright # ??
     rofi
     postman
-    # yaak
-    # nerd-fonts.mplus
-    nerdfonts
-    pkgsUnstable.yaak
+    yaak
     vesktop
     swappy
     feh
+    wf-recorder
+    wl-screenrec
+    vlc
+    nerd-fonts.zed-mono
+    hyprlock
+    hypridle
+    x265
   ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -97,5 +100,5 @@ in
 
   home.homeDirectory = "/home/ss";
 
-  home.stateVersion = "24.11";  
+  home.stateVersion = "25.05";  
 }

@@ -110,7 +110,10 @@ conform.setup({
     formatters_by_ft = {
         javascript = { "prettierd" },
         go = { "gofmt" },
-        typescript = { "prettierd" }
+        typescript = { "prettierd" },
+        json = { "prettierd" },
+        jsonc = { "prettierd" },
+        css = { "prettierd" }
     },
     format_on_save = {
         -- These options will be passed to conform.format()
