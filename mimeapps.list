@@ -1,7 +1,36 @@
 [Default Applications]
 x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+
 x-scheme-handler/discord=vesktop.desktop
+
+# x-scheme-handler/http=zen-browser.desktop
+# x-scheme-handler/https=zen-browser.desktop
+# text/html=zen-browser.desktop
+# application/xhtml+xml=zen-browser.desktop
+
+# application/pdf=zathura.desktop
+# image/png=zen-browser.desktop
+# image/jpeg=zen-browser.desktop
+# image/webp=zen-browser.desktop
+# image/gif=zen-browser.desktop
+# image/svg+xml=zen-browser.desktop
+#
+# video/mp4=vlc.desktop
+# video/x-matroska=vlc.desktop
+# video/x-msvideo=vlc.desktop
+# video/quicktime=vlc.desktop
+# audio/mpeg=vlc.desktop
+# audio/x-wav=vlc.desktop
+# audio/ogg=vlc.desktop
+# application/x-mpegURL=vlc.desktop
+#
+# text/plain=nvim.desktop
+# application/x-shellscript=nvim.desktop
+# text/x-csrc=nvim.desktop
+# text/x-python=nvim.desktop
+# text/x-java=nvim.desktop
+# text/x-markdown=nvim.desktop
 
 [Added Associations]
 x-scheme-handler/tg=org.telegram.desktop.desktop;

@@ -113,7 +113,9 @@ conform.setup({
         typescript = { "prettierd" },
         json = { "prettierd" },
         jsonc = { "prettierd" },
-        css = { "prettierd" }
+        css = { "prettierd" },
+        nix = { "nixfmt" },
+        cpp = { "prettierd" }
     },
     format_on_save = {
         -- These options will be passed to conform.format()

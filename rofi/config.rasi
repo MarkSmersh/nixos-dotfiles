@@ -1,0 +1,3 @@
+//@theme "/nix/store/pfchhfq8dnvjh8pnaws0pspl699z9nfz-rofi-1.7.5/share/rofi/themes/DarkBlue.rasi"
+// @theme "/home/ss/.nix-profile/share/rofi/themes/DarkBlue.rasi"
+@theme "~/.config/rofi/win11.rasi"

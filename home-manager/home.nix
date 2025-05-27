@@ -1,37 +1,36 @@
-{ pkgs, inputs, ...}:
+{ pkgs, inputs, ... }:
 
-let u = import <nixpkgs-unstable> {};
- 
-in
+let u = import <nixpkgs-unstable> { };
 
-{
-    programs.home-manager.enable = true;
+in {
+  programs.home-manager.enable = true;
 
-    # stupid egror
-    home.enableNixpkgsReleaseCheck = false;
+  # stupid egror
+  home.enableNixpkgsReleaseCheck = false;
 
-    # home.backupFileExtension = "backup";
+  # home.backupFileExtension = "backup";
 
   programs.neovim = {
     enable = true;
 
-	extraPackages = with pkgs; [
-		typescript-language-server
-		svelte-language-server
-		nodePackages.prettier
-		lua-language-server
-		rust-analyzer
-		python313
-		gnumake
-		lua-language-server
-		djlint
-        prettierd
-		stylua
-	    ast-grep
-        gopls
-        sourcekit-lsp
-        vscode-langservers-extracted
-	];
+    extraPackages = with pkgs; [
+      typescript-language-server
+      svelte-language-server
+      nodePackages.prettier
+      lua-language-server
+      rust-analyzer
+      python313
+      gnumake
+      lua-language-server
+      djlint
+      prettierd
+      stylua
+      ast-grep
+      gopls
+      sourcekit-lsp
+      vscode-langservers-extracted
+      nixfmt
+    ];
   };
 
   nixpkgs = {
@@ -60,14 +59,9 @@ in
     yazi
     brightnessctl
     ffmpeg
-    brave
     tmux
     go
-    (python3.withPackages (python-pkgs: with python-pkgs;
-      [
-        telethon
-      ]
-    ))
+    (python3.withPackages (python-pkgs: with python-pkgs; [ telethon ]))
     pyright # ??
     rofi
     postman
@@ -82,23 +76,35 @@ in
     hyprlock
     hypridle
     x265
+    jp2a
+    zathura
   ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home.pointerCursor = {
-	gtk.enable = true;
-	x11.enable = true;
-	package = pkgs.material-cursors;
-	name = "material_cursors"; # name is gotten from cursor.theme file
-	size = 20;
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.material-cursors;
+    name = "material_cursors"; # name is gotten from cursor.theme file
+    size = 20;
   };
 
   fonts.fontconfig.enable = true;
+
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   associations.added = {
+  #     "application/pdf" = [ "org.gnome.Evince.desktop" ];
+  #   };
+  #   defaultApplications = {
+  #     "application/pdf" = [ "org.gnome.Evince.desktop" ];
+  #   };
+  # };
 
   home.username = "ss";
 
   home.homeDirectory = "/home/ss";
 
-  home.stateVersion = "25.05";  
+  home.stateVersion = "25.05";
 }

@@ -11,6 +11,10 @@
   text-shadow: inherit;
 }
 
+*:hover {
+  color: #87d182;
+}
+
 window#waybar {
   background: none;
   all: unset;
@@ -26,8 +30,12 @@ window#waybar {
   background: alpha(#000000, 0.7);
   border-radius: 8px;
   padding: 2px 8px;
-  margin-right: 4px;
+  margin-right: 8px;
   border: 0;
+  transition: 0.2s;
+}
+
+#custom-pl:hover {
   text-shadow: 0px 0px 4px alpha(#87d182, 0.7);
 }
 
@@ -36,6 +44,7 @@ window#waybar {
 #workspaces {
   background: alpha(#000000, 0.7);
   border-radius: 8px;
+  transition: none;
 }
 
 #workspaces button {
@@ -50,15 +59,18 @@ window#waybar {
   box-shadow: inherit;
   text-shadow: inherit;
   color: #87d182;
+  transition: 0.2s;
 }
 
 #workspaces button.urgent {
   color: #ee84c2;
+  transition: 0.2s;
 }
 
 #workspaces button.active {
   color: #87d182;
   text-shadow: 0px 0px 4px alpha(#87d182, 0.7);
+  transition: 0.2s;
 }
 
 /* MODULES */
@@ -81,7 +93,12 @@ window#waybar {
 
 /* RAM AND MEMORY */
 
+#memory {
+  transition: 0.2s;
+}
+
 #cpu {
+  transition: 0.2s;
   margin-right: 16px;
 }
 
@@ -103,6 +120,7 @@ window#waybar {
 #network,
 #backlight,
 #battery {
+  transition: 0.2s;
   margin-right: 12px;
 }
 
@@ -114,6 +132,7 @@ window#waybar {
   padding: 0 8px;
   border: 0;
   color: #f0dcc3;
+  transition: 0.2s;
 }
 
 /* TOOLTIP */
