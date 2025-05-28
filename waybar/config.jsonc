@@ -6,62 +6,30 @@
   "modules-left": ["custom/pl", "hyprland/workspaces"],
   "modules-center": ["cpu", "memory"],
   "modules-right": ["group/expand", "clock"],
-  // Modules configuration
   "custom/pl": {
     "format": " ",
   },
-
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "format": "{icon}",
-    "format-icons": {
-      // "urgent": "󰈈",
-      // "active": "",
-      // "default": ""
-    },
   },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
-  },
-
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 5,
-  },
-
   "clock": {
     "interval": 1,
     "format": "{:%H:%M}",
     "format-alt": "{:%c}",
     "tooltip": false,
+    "on-click-right": "kitty --class calcurse --override color1=#87d182 --override color3=#ee84c2 calcurse",
   },
-
   "cpu": {
     "interval": 5,
     "format": "   {usage}%",
     "tooltip": true,
   },
-
   "memory": {
     "interval": 5,
     "format": "   {}%",
   },
-
-  "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", ""],
-  },
-
   "backlight": {
     // "device": "acpi_video1",
     "format": "{icon} ",
@@ -71,11 +39,9 @@
     "on-click-right": "brightnessctl set 1%",
     "tooltip": false,
   },
-
   "hyprland/language": {
     "format": "{short}",
   },
-
   "battery": {
     "states": {
       "good": 95,
@@ -92,7 +58,6 @@
     // "format-full": "",
     "format-icons": ["", "", "", "", ""],
   },
-
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{icon} ",
@@ -102,8 +67,8 @@
     "format-alt": "󰒍  {ifname} | 󰩠  {ipaddr}/{cidr} | 󰀂  {signalStrength}%",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "tooltip-format": "{essid}  {bandwidthUpBits}  {bandwidthDownBits}",
+    "on-click-right": "kitty --class nmtui --override color1=#87d182 --override color4=#000000 --override color7=#ffffff nmtui",
   },
-
   "pulseaudio#output": {
     "scroll-step": 5,
     // %, can be a float
@@ -113,10 +78,9 @@
     "format-bluetooth-muted": "󰂲",
     "format-muted": " ",
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "format-icons": ["", "", ""],
+    "on-click-right": "kitty --class pulsemixer pulsemixer",
+    "format-icons": ["", "", "", "", ""],
   },
-
   "pulseaudio#input": {
     "scroll-step": 5,
     // %, can be a float
@@ -124,7 +88,7 @@
     "format-source": "",
     "format-source-muted": " ",
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-right": "pavucontrol",
+    "on-click-right": "kitty --class pulsemixer pulsemixer",
     "on-scroll-up": "",
   },
   "group/expand": {

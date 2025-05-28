@@ -78,9 +78,14 @@ in {
     x265
     jp2a
     zathura
+    pulsemixer
+    calcurse
   ];
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  home.sessionVariables.EDITOR = "neovim";
+  home.sessionVariables.VISUAL = "neovim";
 
   home.pointerCursor = {
     gtk.enable = true;
