@@ -3,89 +3,95 @@
 let u = import <nixpkgs-unstable> { };
 
 in {
-  programs.home-manager.enable = true;
-
-  # stupid egror
-  home.enableNixpkgsReleaseCheck = false;
-
-  # home.backupFileExtension = "backup";
 
   programs.neovim = {
     enable = true;
 
     extraPackages = with pkgs; [
+      # formatters
+      prettierd # overall
+      stylua # lua
+      gopls # go
+      sourcekit-lsp # swift
+      nixfmt-classic # .nix
+      pyright # python
+
+      # lsps
+      vscode-langservers-extracted # html, css, json, js
       typescript-language-server
       svelte-language-server
-      nodePackages.prettier
       lua-language-server
       rust-analyzer
-      python313
-      gnumake
-      lua-language-server
-      djlint
-      prettierd
-      stylua
-      ast-grep
-      gopls
-      sourcekit-lsp
-      vscode-langservers-extracted
-      nixfmt
     ];
   };
+
+  home.packages = with pkgs; [
+    # desktop
+    waybar
+    hyprpaper
+    hyprlock
+    hypridle
+
+    # desktop's essentials (used in waybar or hypr- conf)
+    brightnessctl
+    wl-clipboard
+    grim
+    slurp
+    feh
+    wf-recorder
+    yazi
+    rofi
+    calcurse
+    zathura
+    pulsemixer
+    swappy
+
+    # GUI apps
+    telegram-desktop
+    pavucontrol # do I need it?
+    postman
+    yaak # it has git sync though (postman alt)
+    vlc
+
+    # TUI- or CLI- apps
+    neofetch
+    git
+    unzip
+    wev
+    wgcf # cloudflare
+    ffmpeg
+    tmux
+    jp2a # image to ASCII
+    bluetui
+
+    # fonts and icons
+    nerd-fonts.zed-mono
+
+    # programming languages and compilers
+    nodejs_22
+    gcc
+    go
+    (python3.withPackages (python-pkgs: with python-pkgs; [ telethon ]))
+    rustup
+
+    # unsorted
+    x265
+  ];
+
+  programs.home-manager.enable = true;
+
+  # stupid egror
+  home.enableNixpkgsReleaseCheck = false;
 
   nixpkgs = {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
+      allowUnsupportedSystem = true;
     };
   };
 
-  home.packages = with pkgs; [
-    neofetch
-    nodejs_22
-    git
-    waybar
-    wev
-    pavucontrol
-    hyprpaper
-    wl-clipboard
-    grim
-    slurp
-    telegram-desktop
-    wgcf
-    unzip
-    gcc
-    cargo
-    yazi
-    brightnessctl
-    ffmpeg
-    tmux
-    go
-    (python3.withPackages (python-pkgs: with python-pkgs; [ telethon ]))
-    pyright # ??
-    rofi
-    postman
-    yaak
-    vesktop
-    swappy
-    feh
-    wf-recorder
-    wl-screenrec
-    vlc
-    nerd-fonts.zed-mono
-    hyprlock
-    hypridle
-    x265
-    jp2a
-    zathura
-    pulsemixer
-    calcurse
-  ];
-
   home.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  home.sessionVariables.EDITOR = "neovim";
-  home.sessionVariables.VISUAL = "neovim";
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -96,16 +102,6 @@ in {
   };
 
   fonts.fontconfig.enable = true;
-
-  # xdg.mimeApps = {
-  #   enable = true;
-  #   associations.added = {
-  #     "application/pdf" = [ "org.gnome.Evince.desktop" ];
-  #   };
-  #   defaultApplications = {
-  #     "application/pdf" = [ "org.gnome.Evince.desktop" ];
-  #   };
-  # };
 
   home.username = "ss";
 
