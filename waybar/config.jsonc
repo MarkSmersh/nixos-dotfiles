@@ -29,9 +29,9 @@
   "memory": {
     "interval": 5,
     "format": "   {}%",
+    "tooltip-format": "   {used}GiB / {total}GiB\n   {swapUsed}GiB / {swapTotal}GiB",
   },
   "backlight": {
-    // "device": "acpi_video1",
     "format": "{icon} ",
     "format-alt": "{icon}  {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
@@ -55,12 +55,9 @@
     "format-charging": "",
     "format-plugged": "",
     "format-alt": "{icon}   {capacity}%",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": ["", "", "", "", ""],
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
     "interval": 1,
     "format-wifi": "{icon} ",
     "format-ethernet": "󰌗  {ifname}: {ipaddr}/{cidr}",
@@ -83,7 +80,6 @@
   },
   "pulseaudio#output": {
     "scroll-step": 5,
-    // %, can be a float
     "format": "{icon}",
     "format-alt": "{icon}  {volume}%",
     "format-muted": " ",
@@ -93,7 +89,6 @@
   },
   "pulseaudio#input": {
     "scroll-step": 5,
-    // %, can be a float
     "format": "{format_source}",
     "format-source": "",
     "format-source-muted": " ",
@@ -103,10 +98,16 @@
   "bluetooth": {
     "format": "󰂯",
     "format-off": "󰂲",
-    "format-connected": "󰂰",
-    "format-alt": "󰂯  {controller_address} ({controller_alias})",
-    "format-connected-alt": "󰂯 {device_address} ({device_alias})",
-    "tooltip-format-connected-battery": "󰥉 {device_battery_percentage}",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "format-alt": "󰂯  {controller_alias} / {controller_address} | 󰂱  {num_connections}",
+    "tooltip-format-on": "Active",
+    "tooltip-format-off": "Unactive",
+    "tooltip-format-disabled": "Disabled",
+    "tooltip-format-connected": "󰂱  {device_alias} / {device_address}",
+    "tooltip-format-connected-battery": "󰂱  {device_alias} / {device_address}  |  󰥉  {device_battery_percentage}%",
+    "on-click-middle": "bluetoothctl show | grep \"Powered: yes\" && bluetoothctl power off || bluetoothctl power on",
     "on-click-right": "kitty --class bluetui --override color3=#ee84c2 --override color2=#87d182 bluetui",
   },
   "group/expand": {

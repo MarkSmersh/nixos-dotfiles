@@ -1,9 +1,7 @@
 require("config.lazy")
 
-
 local builtin = require("telescope.builtin")
 local cmp = require("cmp")
-local lsp = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local onedark = require("onedark")
 local autotag = require("nvim-ts-autotag")
@@ -11,6 +9,15 @@ local luasnip = require("luasnip")
 local treesitter = require("nvim-treesitter.configs")
 local lualine = require("lualine")
 local conform = require("conform")
+local telescope = require('telescope')
+
+telescope.setup {
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    }
+}
 
 -- I just use mason for searching lsps, but
 -- installing them via nixpkgs
@@ -48,33 +55,38 @@ cmp.setup({
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 
-lsp.svelte.setup({
-    capabilities = capabilities,
-})
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('svelte')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('gopls')
+vim.lsp.enable('pyright')
+-- vim.lsp.enable('sourcekit')
+vim.lsp.enable('cssls')
+vim.lsp.enable('denols')
+vim.lsp.enable('sqls')
+vim.lsp.enable('kotlin_language_server')
+vim.lsp.enable('clangd')
 
-lsp.lua_ls.setup({
-    capabilities = capabilities,
-})
+-- vim.lsp.enable("kotlin_language_server")
+-- vim.lsp.enable("java_language_server")
+-- vim.lsp.config('jdtls', { cmd = { 'jdtls' } })
 
-lsp.ts_ls.setup({
-    capabilities = capabilities,
-})
+-- require('java').setup()
 
-lsp.gopls.setup({
-    capabilities = capabilities,
-})
+local config = {
+    cmd = { 'jdtls' },
+    root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+    init_options = {
+        bundles = {
+            "minecraft-clientOnly-d1fae903ae-1.21.4-net.fabricmc.yarn.1_21_4.1.21.4+build.8-v2-sources.jar"
+        }
+    },
+}
+require('jdtls').start_or_attach(config)
 
-lsp.pyright.setup({
-    capabilities = capabilities
-})
-
-lsp.sourcekit.setup({
-    capabilities = capabilities
-})
-
-lsp.cssls.setup({
-    capabilities = capabilities
-})
+-- lsp.jdtls.setup({
+--     capabilities = capabilities
+-- })
 
 treesitter.setup({
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)
@@ -83,13 +95,14 @@ treesitter.setup({
 
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = true,
     },
 })
 
 onedark.setup({
     style = "deep",
 })
+
 onedark.load()
 
 autotag.setup({
@@ -111,11 +124,13 @@ conform.setup({
         javascript = { "prettierd" },
         go = { "gofmt" },
         typescript = { "prettierd" },
+        c = { "clang-format" },
         json = { "prettierd" },
         jsonc = { "prettierd" },
         css = { "prettierd" },
         nix = { "nixfmt" },
-        cpp = { "prettierd" }
+        cpp = { "prettierd" },
+        sql = { "sleek" },
     },
     format_on_save = {
         -- These options will be passed to conform.format()
